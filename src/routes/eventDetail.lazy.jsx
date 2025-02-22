@@ -1,7 +1,8 @@
 import { useLocation, createLazyFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import { getDetailEvent } from "/src/api/event.js"; // Panggil API
+import { getDetailEvent } from "/src/api/eventApi.js"; // Panggil API
 import "/src/styling/detail.css";
+import "/src/styling/loadinganimation.css";
 
 export const Route = createLazyFileRoute("/eventDetail")({
   component: EventDetailPage,
@@ -35,8 +36,14 @@ export function EventDetailPage() {
     fetchEventData();
   }, [itemId]);
 
-  if (loading) return <h3>Loading...</h3>;
-  if (!event) return <h3>Event not found!</h3>;
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Loading Event...</p>
+      </div>
+    ); // Tampilkan animasi loading
+  }
 
   return (
     <div className="gallery-container">

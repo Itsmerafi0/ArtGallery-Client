@@ -2,6 +2,7 @@ import { useLocation, createLazyFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { getDetailProduct } from "/src/api/productApi.js"; // API to fetch data
 import "/src/styling/shop.css";
+import "/src/styling/loadinganimation.css";
 
 export const Route = createLazyFileRoute("/productDetail")({
   component: productDetail,
@@ -43,8 +44,14 @@ export function productDetail() {
     }
   };
 
-  if (loading) return <h3>Loading...</h3>;
-  if (!product) return <h3>Product not found!</h3>;
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Loading product...</p>
+      </div>
+    ); // Tampilkan animasi loading
+  }
 
   return (
     <div className="product-detail-container">
