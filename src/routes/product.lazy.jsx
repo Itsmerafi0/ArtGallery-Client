@@ -55,6 +55,15 @@ function MenuGrid() {
     return parseInt(urlParams.get("page")) || 1;
   }
 
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Loading gallery...</p>
+      </div>
+    ); // Tampilkan animasi loading
+  }
+
   return (
     <div className="event-container">
       <h1 className="event-title">OUR PREMIUM PRODUCTS</h1>
