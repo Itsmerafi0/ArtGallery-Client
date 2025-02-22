@@ -24,7 +24,7 @@ function ContactPage() {
 
     try {
       await sendEmail(formData); // Gunakan fungsi sendEmail dari file emailService.js
-      setMessage("Formulir berhasil dikirim! Periksa email Anda.");
+      setMessage("Formulir berhasil dikirim!.");
       event.target.reset();
     } catch (error) {
       setMessage("Terjadi kesalahan saat mengirim formulir.");
