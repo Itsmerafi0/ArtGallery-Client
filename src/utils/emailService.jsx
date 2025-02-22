@@ -10,10 +10,10 @@ export const sendEmail = async (formData) => {
 
   try {
     await emailjs.send(
-      "service_gpkcsnl",
+      "service_ef02bnj",
       "template_pabcwcu",
       templateParams,
-      "_exp36cSvdWUy21Eo",
+      "-yt4KAQcFam_-1GW4",
     );
   } catch (error) {
     console.error("Gagal mengirim email", error);
