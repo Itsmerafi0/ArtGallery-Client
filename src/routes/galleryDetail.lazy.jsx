@@ -1,6 +1,6 @@
 import { useLocation, createLazyFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import { getDetailMenu } from "/src/api/api.js"; // API to fetch data
+import { getDetailGallery } from "/src/api/galleryApi.js"; // API to fetch data
 import "/src/styling/detail.css";
 
 export const Route = createLazyFileRoute("/galleryDetail")({
@@ -22,7 +22,7 @@ export function galleryDetail() {
       }
 
       try {
-        const data = await getDetailMenu(itemId);
+        const data = await getDetailGallery(itemId);
         setArtwork(data?.data || null);
       } catch (error) {
         console.error("Error fetching artwork:", error);
