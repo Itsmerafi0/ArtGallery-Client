@@ -24,6 +24,7 @@ const GalleryDetailLazyImport = createFileRoute('/galleryDetail')()
 const GalleryLazyImport = createFileRoute('/gallery')()
 const EventDetailLazyImport = createFileRoute('/eventDetail')()
 const EventLazyImport = createFileRoute('/event')()
+const ArticlesLazyImport = createFileRoute('/articles')()
 const AboutLazyImport = createFileRoute('/about')()
 const IndexLazyImport = createFileRoute('/')()
 
@@ -71,6 +72,12 @@ const EventLazyRoute = EventLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/event.lazy').then((d) => d.Route))
 
+const ArticlesLazyRoute = ArticlesLazyImport.update({
+  id: '/articles',
+  path: '/articles',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/articles.lazy').then((d) => d.Route))
+
 const AboutLazyRoute = AboutLazyImport.update({
   id: '/about',
   path: '/about',
@@ -112,6 +119,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/articles': {
+      id: '/articles'
+      path: '/articles'
+      fullPath: '/articles'
+      preLoaderRoute: typeof ArticlesLazyImport
       parentRoute: typeof rootRoute
     }
     '/event': {
@@ -172,6 +186,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/contact': typeof ContactRoute
   '/about': typeof AboutLazyRoute
+  '/articles': typeof ArticlesLazyRoute
   '/event': typeof EventLazyRoute
   '/eventDetail': typeof EventDetailLazyRoute
   '/gallery': typeof GalleryLazyRoute
@@ -185,6 +200,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/contact': typeof ContactRoute
   '/about': typeof AboutLazyRoute
+  '/articles': typeof ArticlesLazyRoute
   '/event': typeof EventLazyRoute
   '/eventDetail': typeof EventDetailLazyRoute
   '/gallery': typeof GalleryLazyRoute
@@ -199,6 +215,7 @@ export interface FileRoutesById {
   '/': typeof IndexLazyRoute
   '/contact': typeof ContactRoute
   '/about': typeof AboutLazyRoute
+  '/articles': typeof ArticlesLazyRoute
   '/event': typeof EventLazyRoute
   '/eventDetail': typeof EventDetailLazyRoute
   '/gallery': typeof GalleryLazyRoute
@@ -214,6 +231,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/about'
+    | '/articles'
     | '/event'
     | '/eventDetail'
     | '/gallery'
@@ -226,6 +244,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/about'
+    | '/articles'
     | '/event'
     | '/eventDetail'
     | '/gallery'
@@ -238,6 +257,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/about'
+    | '/articles'
     | '/event'
     | '/eventDetail'
     | '/gallery'
@@ -252,6 +272,7 @@ export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   ContactRoute: typeof ContactRoute
   AboutLazyRoute: typeof AboutLazyRoute
+  ArticlesLazyRoute: typeof ArticlesLazyRoute
   EventLazyRoute: typeof EventLazyRoute
   EventDetailLazyRoute: typeof EventDetailLazyRoute
   GalleryLazyRoute: typeof GalleryLazyRoute
@@ -265,6 +286,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   ContactRoute: ContactRoute,
   AboutLazyRoute: AboutLazyRoute,
+  ArticlesLazyRoute: ArticlesLazyRoute,
   EventLazyRoute: EventLazyRoute,
   EventDetailLazyRoute: EventDetailLazyRoute,
   GalleryLazyRoute: GalleryLazyRoute,
@@ -287,6 +309,7 @@ export const routeTree = rootRoute
         "/",
         "/contact",
         "/about",
+        "/articles",
         "/event",
         "/eventDetail",
         "/gallery",
@@ -304,6 +327,9 @@ export const routeTree = rootRoute
     },
     "/about": {
       "filePath": "about.lazy.jsx"
+    },
+    "/articles": {
+      "filePath": "articles.lazy.jsx"
     },
     "/event": {
       "filePath": "event.lazy.jsx"
