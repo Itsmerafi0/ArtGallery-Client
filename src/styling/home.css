@@ -1,0 +1,119 @@
+/* Global Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playfair Display", serif;
+}
+
+/* Home Container */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #252a3a; /* Background form */
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Header Styling */
+.home-header {
+  margin-bottom: 30px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.brand-title {
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.brand-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* Button Navigation */
+.button-container {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.nav-button {
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.explore {
+  background: white;
+  color: #8e44ad;
+}
+
+.artists {
+  background: white;
+  color: #e67e22;
+}
+
+.exhibitions {
+  background: white;
+  color: #2980b9;
+}
+
+.nav-button:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+.explore:hover {
+  background: #8e44ad;
+}
+
+.artists:hover {
+  background: #e67e22;
+}
+
+.exhibitions:hover {
+  background: #2980b9;
+}
+
+/* Hero Section */
+.hero-section {
+  margin-top: 30px;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.3s ease-in-out,
+    opacity 0.3s;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

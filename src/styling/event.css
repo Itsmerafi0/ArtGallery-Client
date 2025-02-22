@@ -1,0 +1,60 @@
+.event-container {
+  text-align: center;
+  background: #252a3a; /* Background form */
+  padding: 50px;
+  color: #fff;
+}
+
+.event-title {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.event-description {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.event-content {
+  display: flex;
+  justify-content: space-around;
+  background: linear-gradient(135deg, #6a00f4, #ff0099);
+  color: white;
+  border-radius: 15px;
+  max-width: 800px; /* Lebih kecil dari sebelumnya */
+  margin: 0 auto; /* Pusatkan */
+  padding: 20px; /* Kurangi padding */
+}
+
+.event-specialty,
+.event-why {
+  width: 40%;
+}
+
+.event-specialty h2,
+.event-why h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.event-specialty p,
+.event-why ul {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.event-why ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.event-why li {
+  margin-bottom: 10px;
+}
+
+.event-image img {
+  width: 400px; /* Atur ukuran sesuai kebutuhan */
+  height: auto;
+  border-radius: 10px;
+}

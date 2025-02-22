@@ -1,0 +1,106 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Gunakan background yang sama seperti home */
+body {
+  background: url("/src/assets/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background: #252a3a; /* Background form */
+}
+
+/* Container utama */
+.menu-container {
+  background: #252a3a; /* Background form */
+  /* atau jika pakai gambar */
+  background-image: url("/path/to/home-background.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Title */
+.menu-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Grid layout */
+.menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Setiap item */
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 280px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #252a3a; /* Background form */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Gambar */
+.menu-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Detail */
+.menu-details {
+  text-align: center;
+  padding: 10px;
+}
+
+.menu-details h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.menu-details p {
+  font-size: 14px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+/* Tombol detail */
+.order-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.order-button:hover {
+  background-color: rgb(101, 101, 255);
+  color: white;
+}

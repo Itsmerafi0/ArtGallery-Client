@@ -1,0 +1,101 @@
+/* Global Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  background: linear-gradient(to bottom, #0e0f15, #1a1d29);
+  color: white;
+  font-family: Arial, sans-serif;
+  width: 100%;
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  font-size: 14px;
+  color: #facc15;
+}
+
+.top-left {
+  display: flex;
+  gap: 30px;
+}
+
+.top-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid #333;
+}
+
+/* Logo */
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.logo-bold {
+  color: white;
+}
+
+.logo-light {
+  color: #9ca3af;
+}
+
+/* Menu */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.nav-menu li {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-menu li:hover {
+  color: white;
+}
+
+/* Button */
+.play-button {
+  background-color: #facc15;
+  color: black;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.play-button:hover {
+  background-color: #e5b80b;
+}
+.nav-menu a {
+  color: white; /* Warna teks putih */
+  text-decoration: none; /* Hilangkan garis bawah */
+  font-weight: bold; /* Tambahkan ketebalan */
+}
+
+.nav-menu a:hover {
+  color: #ddd; /* Warna saat hover */
+}
