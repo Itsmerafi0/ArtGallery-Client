@@ -1,10 +1,16 @@
 /* General Styling */
+body {
+  background: #252a3a; /* Sesuaikan dengan warna yang diinginkan */
+  margin: 0;
+  padding: 0;
+}
 .about-container {
   font-family: Arial, sans-serif;
   color: white;
   max-width: 1200px;
   margin: auto;
   padding: 20px;
+  background: #252a3a; /* Background form */
 }
 
 /* Hero Section */
@@ -43,6 +49,7 @@
 .company-history h2 {
   font-size: 2rem;
   margin-bottom: 15px;
+  color: white;
 }
 
 .company-history p {
@@ -130,6 +137,7 @@
   .company-history {
     flex-direction: column;
     text-align: center;
+    background: #252a3a; /* Background form */
   }
 
   .mission-vision {
