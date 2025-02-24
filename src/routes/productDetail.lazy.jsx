@@ -94,16 +94,6 @@ export function productDetail() {
           )}
         </div>
 
-        {/* External Link */}
-        <a
-          href={product.web_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="external-link"
-        >
-          View on Official Website
-        </a>
-
         {/* Description Section */}
         <div className="description-section">
           <h2>Product Description</h2>
@@ -111,6 +101,11 @@ export function productDetail() {
             dangerouslySetInnerHTML={{ __html: product.description }}
             className="product-description-content"
           ></div>
+        </div>
+        <div className="back-button-container">
+          <Link to="/product" className="gallery-button">
+            Back to Product
+          </Link>
         </div>
       </div>
     </div>
