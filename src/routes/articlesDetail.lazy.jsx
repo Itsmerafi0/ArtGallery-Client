@@ -5,7 +5,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { getDetailArticles } from "../api/articlesApi";
-import { getDetailHotArticles } from "../api/highlitarticlesApi";
+import { getDetailHotArticles } from "../api/highlightsApi";
 import "/src/styling/detailarticles.css";
 import "/src/styling/loadinganimation.css";
 
