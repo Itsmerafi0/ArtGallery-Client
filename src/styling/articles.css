@@ -2,8 +2,8 @@
 body {
   font-family: "Georgia", serif;
   line-height: 1.6;
-  color: #333;
-  background: #252a3a; /* Background form */
+  color: #fff;
+  background: #252a3a;
   margin: 0;
   padding: 0;
 }
@@ -37,7 +37,7 @@ body {
 
 /* Article Container */
 .article-container {
-  background: #252a3a; /* Background form */
+  background: #252a3a;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -51,20 +51,33 @@ body {
   margin-bottom: 30px;
 }
 
+/* Content Wrapper */
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
 /* Article Grid */
 .article-grid {
+  flex: 3;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 2 kolom */
-  gap: 20px; /* Jarak antar item */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  align-items: stretch;
 }
 
 /* Article Detail */
 .article-detail {
-  background: #fff;
+  background: #1a1d29;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
   transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+  height: 100%;
 }
 
 .article-detail:hover {
@@ -74,37 +87,75 @@ body {
 .article-title {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #2c3e50;
+  color: #facc15;
   margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.article-title:hover {
+  color: #e5b80b;
 }
 
 .article-meta {
   font-size: 0.9rem;
-  color: #7f8c8d;
+  color: #9ca3af;
   margin-bottom: 15px;
 }
 
 .article-content {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #444;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
 .article-content p {
-  margin-bottom: 20px;
+  margin: 0;
+  color: #fff;
 }
 
-/* No Articles Message */
-.no-articles {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #666;
+/* Sidebar */
+.sidebar {
+  flex: 1;
+  background: #1a1d29;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  color: #facc15;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  font-size: 1rem;
+  color: #9ca3af;
+  margin-bottom: 10px;
+}
+
+.sidebar ul li:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+.sidebar p {
+  font-size: 1rem;
+  color: #9ca3af;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
   .article-grid {
-    grid-template-columns: 1fr; /* 1 kolom pada layar kecil */
+    grid-template-columns: 1fr;
   }
 
   .main-title {
@@ -115,7 +166,7 @@ body {
     font-size: 1.5rem;
   }
 
-  .article-content {
-    font-size: 1rem;
+  .article-detail {
+    min-height: auto;
   }
 }
