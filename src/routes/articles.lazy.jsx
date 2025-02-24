@@ -4,7 +4,7 @@ import { getArticles } from "../api/articlesApi"; // Pastikan fungsi ini sudah d
 import "/src/styling/articles.css"; // File CSS untuk styling
 import "/src/styling/hotarticles.css"; // File CSS untuk styling
 import Pagination from "../components/pagination";
-import { getHotArticles } from "../api/highlitarticlesApi";
+import { getHotArticles } from "../api/highlightsApi";
 
 export const Route = createLazyFileRoute("/articles")({
   component: Article,
