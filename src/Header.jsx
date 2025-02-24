@@ -40,6 +40,7 @@ export default function Header() {
           <Link to="/event">Event</Link>
           <Link to="/gallery">Gallery</Link>
           <Link to="/product">Product</Link>
+          <Link to="/articles">Article</Link>
         </ul>
       </nav>
     </header>

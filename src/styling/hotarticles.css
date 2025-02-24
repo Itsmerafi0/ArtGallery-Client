@@ -1,0 +1,51 @@
+/* Sidebar */
+.sidebar {
+  flex: 1; /* Lebar 25% */
+  background: #1a1d29; /* Warna latar belakang yang lebih gelap */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  color: #facc15; /* Warna aksen untuk judul */
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.hot-article-item {
+  background: #252a3a; /* Warna latar belakang item */
+  border-radius: 8px;
+  padding: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.hot-article-item:hover {
+  transform: translateY(-3px);
+}
+
+.hot-article-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #facc15; /* Warna aksen untuk judul */
+  text-decoration: none; /* Hilangkan garis bawah pada link */
+}
+
+.hot-article-title:hover {
+  color: #e5b80b; /* Warna saat hover */
+}
+
+.hot-article-meta {
+  font-size: 0.8rem;
+  color: #9ca3af; /* Warna teks yang lebih lembut */
+  margin-top: 5px;
+}

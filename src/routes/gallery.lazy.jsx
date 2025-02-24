@@ -5,6 +5,7 @@ import "/src/styling/modal.css";
 import { getGallery } from "/src/api/galleryApi.js"; // Sesuaikan path
 import ModalImage from "../components/modal_image";
 import Pagination from "../components/pagination";
+import "/src/styling/loadinganimation.css";
 
 export const Route = createLazyFileRoute("/gallery")({
   component: MenuGrid,
@@ -52,49 +53,53 @@ function MenuGrid() {
     return parseInt(urlParams.get("page")) || 1;
   }
 
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Loading gallery...</p>
+      </div>
+    ); // Tampilkan animasi loading
+  }
+
   return (
     <div className="menu-container">
-      <h1 className="menu-title">Art Gallery</h1>
-
-      {loading ? (
-        <h3 className="loading-text">Loading...</h3>
-      ) : (
-        <div>
-          <div className="menu-grid">
-            {filteredItems.map((item) => (
-              <div key={item.id} className="menu-item">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="menu-image"
-                  onClick={() => setSelectedImage(item.image)}
-                />
-                <div className="menu-details">
-                  <h3>{item.name}</h3>
-                  <p>Artist: {item.creator}</p>
-                </div>
-                <div className="menu-actions">
-                  <Link
-                    to="/galleryDetail"
-                    state={{ itemId: item.id }}
-                    className="order-button"
-                  >
-                    Detail
-                  </Link>
-                </div>
+      <h1 className="menu-title">Art Gallery</h1>(
+      <div>
+        <div className="menu-grid">
+          {filteredItems.map((item) => (
+            <div key={item.id} className="menu-item">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="menu-image"
+                onClick={() => setSelectedImage(item.image)}
+              />
+              <div className="menu-details">
+                <h3>{item.name}</h3>
+                <p>Artist: {item.creator}</p>
               </div>
-            ))}
-          </div>
-
-          <Pagination
-            prevPageUrl={prevPageUrl}
-            nextPageUrl={nextPageUrl}
-            fetchData={fetchGalleryData}
-            getPageNumber={getPageNumber}
-          />
+              <div className="menu-actions">
+                <Link
+                  to="/galleryDetail"
+                  state={{ itemId: item.id }}
+                  className="order-button"
+                >
+                  Detail
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
-      )}
-      {/* Modal Image */}
+
+        <Pagination
+          prevPageUrl={prevPageUrl}
+          nextPageUrl={nextPageUrl}
+          fetchData={fetchGalleryData}
+          getPageNumber={getPageNumber}
+        />
+      </div>
+      ){/* Modal Image */}
       <ModalImage
         selectedImage={selectedImage}
         setSelectedImage={setSelectedImage}

@@ -1,0 +1,112 @@
+/* General Styles */
+body {
+  font-family: "Georgia", serif;
+  line-height: 1.6;
+  background: #252a3a; /* Warna latar belakang yang netral */
+  margin: 0;
+  padding: 0;
+}
+
+/* Gaya dasar untuk halaman detail artikel */
+.article-detail {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 40px;
+  font-family: "Georgia", serif;
+  line-height: 1.8;
+  color: white; /* Teks gelap */
+  background: #fff; /* Latar belakang putih */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  position: relative; /* Untuk posisi close button */
+}
+
+.article-detail:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Tombol tutup (X) */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: black;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #ff0000; /* Warna merah saat dihover */
+}
+
+/* Judul artikel */
+.article-detail h1 {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+  color: #2c3e50; /* Warna gelap untuk judul */
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Meta informasi (tanggal) */
+.article-detail .meta {
+  font-size: 1rem;
+  color: #555; /* Warna abu-abu gelap */
+  text-align: center;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+/* Konten artikel */
+.article-detail .content {
+  font-size: 1.1rem;
+  color: #444; /* Warna abu-abu gelap */
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.article-detail .content p {
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+/* Efek hover untuk paragraf */
+.article-detail .content p:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.02);
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .article-detail {
+    padding: 20px;
+  }
+
+  .article-detail h1 {
+    font-size: 2.2rem;
+  }
+
+  .article-detail .content {
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+  .close-button {
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+  }
+}

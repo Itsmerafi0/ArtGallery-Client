@@ -2,6 +2,7 @@ import { useLocation, createLazyFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { getDetailProduct } from "/src/api/productApi.js"; // API to fetch data
 import "/src/styling/shop.css";
+import "/src/styling/loadinganimation.css";
 
 export const Route = createLazyFileRoute("/productDetail")({
   component: productDetail,
@@ -43,8 +44,14 @@ export function productDetail() {
     }
   };
 
-  if (loading) return <h3>Loading...</h3>;
-  if (!product) return <h3>Product not found!</h3>;
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Loading product...</p>
+      </div>
+    ); // Tampilkan animasi loading
+  }
 
   return (
     <div className="product-detail-container">
@@ -87,16 +94,6 @@ export function productDetail() {
           )}
         </div>
 
-        {/* External Link */}
-        <a
-          href={product.web_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="external-link"
-        >
-          View on Official Website
-        </a>
-
         {/* Description Section */}
         <div className="description-section">
           <h2>Product Description</h2>
@@ -104,6 +101,11 @@ export function productDetail() {
             dangerouslySetInnerHTML={{ __html: product.description }}
             className="product-description-content"
           ></div>
+        </div>
+        <div className="back-button-container">
+          <Link to="/product" className="gallery-button">
+            Back to Product
+          </Link>
         </div>
       </div>
     </div>

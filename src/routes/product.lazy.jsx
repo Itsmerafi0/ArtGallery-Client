@@ -5,6 +5,7 @@ import "../styling/event.css";
 import { createLazyFileRoute, Link } from "@tanstack/react-router";
 import ModalImage from "../components/modal_image";
 import Pagination from "../components/pagination";
+import "/src/styling/loadinganimation.css";
 
 export const Route = createLazyFileRoute("/product")({
   component: MenuGrid,
@@ -53,6 +54,15 @@ function MenuGrid() {
     if (!url) return 1;
     const urlParams = new URLSearchParams(url.split("?")[1]);
     return parseInt(urlParams.get("page")) || 1;
+  }
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Loading product...</p>
+      </div>
+    ); // Tampilkan animasi loading
   }
 
   return (
@@ -122,49 +132,45 @@ function MenuGrid() {
         </div>
       </div>
 
-      {loading ? (
-        <h3 className="loading-text">Loading...</h3>
-      ) : (
-        <div>
-          <h1 className="menu-title">Product</h1>
-          <div className="menu-grid" style={{ gap: "20px" }}>
-            {filteredItems.map((item) => (
-              <div
-                key={item.id}
-                className="menu-item"
-                style={{ padding: "15px", marginBottom: "20px" }}
-              >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="menu-image"
-                  onClick={() => setSelectedImage(item.image)}
-                />
-                <div className="menu-details">
-                  <h3>{item.name}</h3>
-                  <p>Price : {item.price}</p>
-                </div>
-                <div className="menu-actions">
-                  <Link
-                    to="/productDetail"
-                    state={{ itemId: item.id }}
-                    className="order-button"
-                  >
-                    Buy
-                  </Link>
-                </div>
+      <div>
+        <h1 className="menu-title">Product</h1>
+        <div className="menu-grid" style={{ gap: "20px" }}>
+          {filteredItems.map((item) => (
+            <div
+              key={item.id}
+              className="menu-item"
+              style={{ padding: "15px", marginBottom: "20px" }}
+            >
+              <img
+                src={item.image}
+                alt={item.name}
+                className="menu-image"
+                onClick={() => setSelectedImage(item.image)}
+              />
+              <div className="menu-details">
+                <h3>{item.name}</h3>
+                <p>Price : {item.price}</p>
               </div>
-            ))}
-          </div>
-
-          <Pagination
-            prevPageUrl={prevPageUrl}
-            nextPageUrl={nextPageUrl}
-            fetchData={fetchProductData}
-            getPageNumber={getPageNumber}
-          />
+              <div className="menu-actions">
+                <Link
+                  to="/productDetail"
+                  state={{ itemId: item.id }}
+                  className="order-button"
+                >
+                  Buy
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
-      )}
+
+        <Pagination
+          prevPageUrl={prevPageUrl}
+          nextPageUrl={nextPageUrl}
+          fetchData={fetchProductData}
+          getPageNumber={getPageNumber}
+        />
+      </div>
       {/* Modal Image */}
       <ModalImage
         selectedImage={selectedImage}

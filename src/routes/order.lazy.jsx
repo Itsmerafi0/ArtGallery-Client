@@ -64,6 +64,15 @@ function Order() {
     }
   }, [kategoriPizza]);
 
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Loading articles...</p>
+      </div>
+    ); // Tampilkan animasi loading
+  }
+
   return (
     <div className="order">
       <h2>Buat Order Baru</h2>
@@ -145,20 +154,16 @@ function Order() {
           </div>
           <button type="submit">Tambahkan ke Keranjang</button>
         </div>
-        {loading ? (
-          <h3>Loading...</h3>
-        ) : (
-          selectedPizza && (
-            <div className="order-pizza">
-              <Pizza
-                nama_pizza={selectedPizza.name}
-                deskripsi={selectedPizza.description}
-                image={selectedPizza.image}
-              />
-              <p>{price}</p>
-            </div>
-          )
-        )}
+        selectedPizza && (
+        <div className="order-pizza">
+          <Pizza
+            nama_pizza={selectedPizza.name}
+            deskripsi={selectedPizza.description}
+            image={selectedPizza.image}
+          />
+          <p>{price}</p>
+        </div>
+        )
       </form>
       {loading ? <h2>Loading...</h2> : <Cart cart={cart} checkout={checkout} />}
     </div>
