@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import "/src/styling/contact.css";
 import { useState } from "react";
 import { sendEmail } from "../utils/emailService";
+
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
@@ -15,7 +16,6 @@ function ContactPage() {
     setLoading(true);
     setMessage("");
 
-    // Mengambil data dari input form
     const formData = {
       name: event.target.name.value,
       email: event.target.email.value,
@@ -23,8 +23,8 @@ function ContactPage() {
     };
 
     try {
-      await sendEmail(formData); // Gunakan fungsi sendEmail dari file emailService.js
-      setMessage("Formulir berhasil dikirim!.");
+      await sendEmail(formData);
+      setMessage("Formulir berhasil dikirim!");
       event.target.reset();
     } catch (error) {
       setMessage("Terjadi kesalahan saat mengirim formulir.");
@@ -48,36 +48,34 @@ function ContactPage() {
           ></iframe>
         </div>
 
-        {/* Formulir Kontak */}
-        <div className="contact-form-container">
-          <h2>Contact Us</h2>
-          {message && <p className="contact-message">{message}</p>}
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Your Name"
-              required
-            />
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter Your Email"
-              required
-            />
-            <textarea
-              id="comment"
-              name="comment"
-              placeholder="Write Message Here...."
-              rows="4"
-              required
-            ></textarea>
-
-            <button type="submit" disabled={loading}>
-              {loading ? "Mengirim..." : "Send"}
+        {/* Form */}
+        <div className="form-container">
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Company Email</label>
+              <input type="text" id="email" name="email" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="comment">How Can We Help You?</label>
+              <textarea
+                id="comment"
+                name="comment"
+                rows="10"
+                required
+              ></textarea>
+            </div>
+            <button
+              className="form-submit-btn"
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? "Submitting..." : "Submit"}
             </button>
+            {message && <p>{message}</p>}
           </form>
         </div>
       </div>
