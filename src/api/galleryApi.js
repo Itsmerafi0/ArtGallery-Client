@@ -23,7 +23,7 @@ export async function getDetailGallery(itemId) {
 }
 
 export async function getAllGallery() {
-  const response = await fetch(`${BASE_URL}`);
+  const response = await fetch(`${BASE_URL}gallery`);
   const data = await response.json();
 
   return data.data.map(({ id, title }) => ({ id, title }));
