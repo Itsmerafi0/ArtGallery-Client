@@ -35,8 +35,14 @@ export function galleryDetail() {
     fetchGalleryData();
   }, [itemId]);
 
-  if (loading) return <h3>Loading...</h3>;
-  if (!artwork) return <h3>Artwork not found!</h3>;
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Loading Gallery...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="gallery-container">
