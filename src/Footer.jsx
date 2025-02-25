@@ -5,6 +5,7 @@ import {
   FaTwitter,
   FaPhone,
   FaEnvelope,
+  FaGithub,
 } from "react-icons/fa";
 
 const PizzaOfTheDay = () => {
@@ -39,8 +40,8 @@ const PizzaOfTheDay = () => {
           <div className="footer-section social">
             <h3>Follow Us</h3>
             <div className="social-icons">
-              <a href="#" className="social-link">
-                <FaFacebook />
+              <a href="https://github.com/Itsmerafi0" className="social-link">
+                <FaGithub />
               </a>
               <a href="#" className="social-link">
                 <FaInstagram />
