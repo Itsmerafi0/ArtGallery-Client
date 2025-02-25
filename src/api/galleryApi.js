@@ -23,8 +23,17 @@ export async function getDetailGallery(itemId) {
 }
 
 export async function getAllGallery() {
-  const response = await fetch(`${BASE_URL}gallery`);
+  const response = await fetch(`${BASE_URL}artworks`);
   const data = await response.json();
 
   return data.data.map(({ id, title }) => ({ id, title }));
+}
+
+export async function getDetailTest() {
+  const response = await fetch(`${BASE_URL}artworks/14620`);
+  const { data } = await response.json();
+  return {
+    id: data.id,
+    title: data.title,
+  };
 }

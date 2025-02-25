@@ -51,3 +51,12 @@ export async function getAllEvent() {
 
   return data.data.map(({ id, title }) => ({ id, title }));
 }
+
+export async function getDetailTest() {
+  const response = await fetch(`${BASE_URL}event/6087`);
+  const { data } = await response.json();
+  return {
+    id: data.id,
+    title: data.title,
+  };
+}
