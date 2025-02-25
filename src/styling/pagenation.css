@@ -14,6 +14,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.3s ease;
+  margin-bottom: 40px;
 }
 
 .pagination button:hover {
