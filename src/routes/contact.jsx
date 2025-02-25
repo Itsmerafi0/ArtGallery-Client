@@ -57,7 +57,7 @@ function ContactPage() {
             </div>
             <div className="form-group">
               <label htmlFor="email">Company Email</label>
-              <input type="text" id="email" name="email" required />
+              <input type="email" id="email" name="email" required />
             </div>
             <div className="form-group">
               <label htmlFor="comment">How Can We Help You?</label>
