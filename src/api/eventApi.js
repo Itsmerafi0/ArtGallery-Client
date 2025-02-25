@@ -43,3 +43,20 @@ export async function getDetailEventOccurrences(itemId) {
     return null;
   }
 }
+
+// Unit Test API
+export async function getAllEvent() {
+  const response = await fetch(`${BASE_URL}event`);
+  const data = await response.json();
+
+  return data.data.map(({ id, title }) => ({ id, title }));
+}
+
+export async function getDetailTest() {
+  const response = await fetch(`${BASE_URL}event/6087`);
+  const { data } = await response.json();
+  return {
+    id: data.id,
+    title: data.title,
+  };
+}
